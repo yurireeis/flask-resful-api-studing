@@ -1,0 +1,5 @@
+data.db
+.idea/*
+.idea/vcs.xml
+__pycache__/
+*.pyc
