@@ -1,6 +1,8 @@
+werkzeug
 Flask==0.12.2
 Flask-RESTful==0.3.6
 Flask-JWT==0.3.2
 Flask-SQLAlchemy==2.2
+Flask-CORS
 uwsgi
 psycopg2

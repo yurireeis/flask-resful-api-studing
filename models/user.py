@@ -7,14 +7,24 @@ class UserModel(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(80))
     password = db.Column(db.String(80))
+    displayname = db.Column(db.String(80))
+    photo_url = db.Column(db.String(80))
+    position = db.Column(db.String(80))
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, displayname, photo_url, position):
         self.username = username
         self.password = password
+        self.displayname = displayname
+        self.photo_url = photo_url
+        self.position = position
 
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
+
+    def json(self):
+        return dict(id=self.id, username=self.username, displayname=self.displayname, photo=self.photo_url,
+                    position=self.position)
 
     @classmethod
     def find_by_username(cls, username):
